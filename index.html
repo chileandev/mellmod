@@ -47,9 +47,9 @@
     .menu button {
       background: transparent;
       border: none;
-      border-radius: 5px;
       color: #ffffff;
       padding: 8px 12px;
+      font-size: 16px;
       cursor: pointer;
       transition: background 0.3s, color 0.3s;
     }
@@ -57,6 +57,7 @@
     .menu button:hover {
       background: #ffffff;
       color: #121212;
+      border-radius: 5px;
     }
 
     /* Mobile Menu Button */
@@ -85,7 +86,7 @@
       width: 250px;
       background: rgba(18, 18, 18, 0.9);
       backdrop-filter: blur(10px);
-      transition: transform 0.3s;
+      transition: transform 0.3s ease-in-out;
       z-index: 9;
       padding: 20px;
       display: flex;
@@ -96,6 +97,7 @@
     .sidebar a {
       color: #ffffff;
       text-decoration: none;
+      font-size: 18px;
       padding: 10px;
       border-radius: 5px;
       transition: background 0.3s;
@@ -110,19 +112,21 @@
     .content {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin: 80px 20px 0 20px;
+      justify-content: center;
+      margin-top: 80px;
+      padding: 20px;
+      text-align: center;
+      flex-direction: column;
     }
 
     .content img {
-      max-width: 220px;
+      max-width: 300px;
       border-radius: 10px;
-      margin-right: 20px;
+      margin-bottom: 20px;
     }
 
     .content-text {
-      flex: 1;
-      text-align: right;
+      text-align: center;
     }
 
     .content-text h1 {
@@ -148,21 +152,6 @@
       .sidebar.active {
         transform: translateX(0);
       }
-
-      .content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .content img {
-        margin-bottom: 20px;
-        margin-right: 0;
-      }
-
-      .content-text {
-        text-align: center;
-      }
     }
   </style>
 </head>
@@ -171,9 +160,9 @@
   <div class="topbar">
     <div class="brand">MellMods<sup>™</sup></div>
     <div class="menu">
-      <button>Productos</button>
-      <button>Contacto</button>
-      <button>FAQ</button>
+      <button onclick="scrollToSection('productos')">Productos</button>
+      <button onclick="scrollToSection('contacto')">Contacto</button>
+      <button onclick="scrollToSection('faq')">FAQ</button>
     </div>
     <div class="menu-toggle" onclick="toggleSidebar()">
       <span></span>
@@ -184,26 +173,50 @@
 
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
-    <a href="#">Productos</a>
-    <a href="#">Contacto</a>
-    <a href="#">FAQ</a>
+    <a href="#productos" onclick="closeSidebar()">Productos</a>
+    <a href="#contacto" onclick="closeSidebar()">Contacto</a>
+    <a href="#faq" onclick="closeSidebar()">FAQ</a>
   </div>
 
   <!-- Content Section -->
   <div class="content">
-    <img src="https://via.placeholder.com/220" alt="Placeholder Image">
+    <img src="https://via.placeholder.com/300" alt="Placeholder Image">
     <div class="content-text">
       <h1>Bienvenido a MellMods™</h1>
       <p>Tu sitio de mods y productos únicos</p>
     </div>
   </div>
 
+  <!-- Placeholder Sections -->
+  <div id="productos" style="margin: 100px 20px;">
+    <h2>Productos</h2>
+    <p>Explora nuestra gama de productos únicos.</p>
+  </div>
+
+  <div id="contacto" style="margin: 100px 20px;">
+    <h2>Contacto</h2>
+    <p>Ponte en contacto con nosotros.</p>
+  </div>
+
+  <div id="faq" style="margin: 100px 20px;">
+    <h2>FAQ</h2>
+    <p>Resolvemos tus dudas frecuentes.</p>
+  </div>
+
   <script>
     const sidebar = document.getElementById("sidebar");
 
     function toggleSidebar() {
-      const isActive = sidebar.style.transform === "translateX(0px)";
-      sidebar.style.transform = isActive ? "translateX(-100%)" : "translateX(0)";
+      sidebar.classList.toggle("active");
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove("active");
+    }
+
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      window.scrollTo({ top: section.offsetTop - 60, behavior: "smooth" });
     }
   </script>
 </body>
