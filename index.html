@@ -20,11 +20,12 @@
       align-items: center;
       padding: 0 20px;
       height: 60px;
-      background: rgba(18, 18, 18, 0.8);
+      background: linear-gradient(180deg, rgba(18, 18, 18, 0.8), rgba(30, 30, 30, 0.8));
       backdrop-filter: blur(10px);
       position: fixed;
       width: 100%;
       z-index: 10;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     .brand {
@@ -42,7 +43,7 @@
 
     .menu button {
       background: transparent;
-      border: 1px solid #ffffff;
+      border: none;
       border-radius: 5px;
       color: #ffffff;
       padding: 8px 12px;
@@ -102,6 +103,33 @@
       color: #121212;
     }
 
+    /* Content Section */
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 80px 20px 0 20px;
+    }
+
+    .content img {
+      max-width: 200px;
+      border-radius: 10px;
+    }
+
+    .content-text {
+      text-align: right;
+    }
+
+    .content-text h1 {
+      font-size: 24px;
+      margin: 0 0 10px;
+    }
+
+    .content-text p {
+      font-size: 16px;
+      margin: 0;
+    }
+
     /* Mobile View Styles */
     @media screen and (max-width: 768px) {
       .menu {
@@ -114,6 +142,20 @@
 
       .sidebar.active {
         transform: translateX(100%);
+      }
+
+      .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .content img {
+        margin-bottom: 20px;
+      }
+
+      .content-text {
+        text-align: center;
       }
     }
   </style>
@@ -141,15 +183,22 @@
     <a href="#">FAQ</a>
   </div>
 
+  <!-- Content Section -->
+  <div class="content">
+    <img src="https://via.placeholder.com/200" alt="Placeholder Image">
+    <div class="content-text">
+      <h1>Bienvenido a MellMods™</h1>
+      <p>Tu sitio de mods y productos únicos</p>
+    </div>
+  </div>
+
   <script>
     const sidebar = document.getElementById("sidebar");
 
     function toggleSidebar() {
-      if (sidebar.style.transform === "translateX(0%)") {
-        sidebar.style.transform = "translateX(-100%)";
-      } else {
-        sidebar.style.transform = "translateX(0%)";
-      }
+      sidebar.style.transform = sidebar.style.transform === "translateX(0%)" 
+        ? "translateX(-100%)" 
+        : "translateX(0%)";
     }
   </script>
 </body>
