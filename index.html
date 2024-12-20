@@ -3,221 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MellMods™</title>
-  <style>
-    /* General Styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    /* Topbar Styles */
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-      height: 60px;
-      background: linear-gradient(180deg, rgba(18, 18, 18, 0.9), rgba(30, 30, 30, 0.8));
-      backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .brand {
-      font-size: 20px;
-      background: linear-gradient(to right, #ff6f6f, #fff 50%, #6fc7ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
-    }
-
-    .menu {
-      display: flex;
-      gap: 15px;
-    }
-
-    .menu button {
-      background: transparent;
-      border: none;
-      color: #ffffff;
-      padding: 8px 12px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .menu button:hover {
-      background: #ffffff;
-      color: #121212;
-      border-radius: 5px;
-    }
-
-    /* Mobile Menu Button */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      display: block;
-      height: 3px;
-      width: 25px;
-      background: #ffffff;
-      border-radius: 3px;
-      transition: transform 0.3s, background 0.3s;
-    }
-
-    /* Sidebar Styles */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -100%;
-      height: 100%;
-      width: 250px;
-      background: rgba(18, 18, 18, 0.9);
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease-in-out;
-      z-index: 9;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .sidebar a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 10px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .sidebar a:hover {
-      background: #ffffff;
-      color: #121212;
-    }
-
-    /* Content Section */
-    .content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 80px;
-      padding: 20px;
-      text-align: center;
-      flex-direction: column;
-    }
-
-    .content img {
-      max-width: 300px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    .content-text {
-      text-align: center;
-    }
-
-    .content-text h1 {
-      font-size: 24px;
-      margin: 0 0 10px;
-    }
-
-    .content-text p {
-      font-size: 16px;
-      margin: 0;
-    }
-
-    /* Mobile View Styles */
-    @media screen and (max-width: 768px) {
-      .menu {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .sidebar.active {
-        transform: translateX(0);
-      }
-    }
-  </style>
+  <title>Online Store</title>
+  <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="brand">MellMods<sup>™</sup></div>
-    <div class="menu">
-      <button onclick="scrollToSection('productos')">Productos</button>
-      <button onclick="scrollToSection('contacto')">Contacto</button>
-      <button onclick="scrollToSection('faq')">FAQ</button>
+  <header>
+    <div class="top-bar">
+      <p>Welcome to our online store! | Call us: +1 234 567 890</p>
     </div>
-    <div class="menu-toggle" onclick="toggleSidebar()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <a href="#productos" onclick="closeSidebar()">Productos</a>
-    <a href="#contacto" onclick="closeSidebar()">Contacto</a>
-    <a href="#faq" onclick="closeSidebar()">FAQ</a>
-  </div>
-
-  <!-- Content Section -->
-  <div class="content">
-    <img src="https://via.placeholder.com/300" alt="Placeholder Image">
-    <div class="content-text">
-      <h1>Bienvenido a MellMods™</h1>
-      <p>Tu sitio de mods y productos únicos</p>
-    </div>
-  </div>
-
-  <!-- Placeholder Sections -->
-  <div id="productos" style="margin: 100px 20px;">
-    <h2>Productos</h2>
-    <p>Explora nuestra gama de productos únicos.</p>
-  </div>
-
-  <div id="contacto" style="margin: 100px 20px;">
-    <h2>Contacto</h2>
-    <p>Ponte en contacto con nosotros.</p>
-  </div>
-
-  <div id="faq" style="margin: 100px 20px;">
-    <h2>FAQ</h2>
-    <p>Resolvemos tus dudas frecuentes.</p>
-  </div>
-
-  <script>
-    const sidebar = document.getElementById("sidebar");
-
-    function toggleSidebar() {
-      sidebar.classList.toggle("active");
-    }
-
-    function closeSidebar() {
-      sidebar.classList.remove("active");
-    }
-
-    function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      window.scrollTo({ top: section.offsetTop - 60, behavior: "smooth" });
-    }
-  </script>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>MyStore</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="#"><img src="cart-icon.png" alt="Cart"></a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h2>Welcome to the best online store!</h2>
+      <p>Find amazing products at unbeatable prices.</p>
+      <a href="#shop" class="btn">Shop Now</a>
+    </section>
+    <section id="shop">
+      <!-- Product listings will go here -->
+    </section>
+  </main>
+  <footer>
+    <p>© 2024 Mellmods. All rights reserved.</p>
+  </footer>
 </body>
 </html>
