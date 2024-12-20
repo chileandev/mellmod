@@ -4,36 +4,46 @@ body, h1, h2, p, ul, li, a {
   padding: 0;
   list-style: none;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 /* Global styles */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: #fff;
+  background: #121212;
+  overflow-x: hidden;
 }
 
-/* Top bar styles */
+/* Top bar */
 .top-bar {
-  background: #f4f4f4;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 0.9rem;
-}
-
-/* Navbar styles */
-.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #555;
-  color: white;
+  backdrop-filter: blur(10px);
+  background: rgba(20, 20, 20, 0.8);
   padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.logo h1 {
+/* Logo text with gradient */
+.logo-text {
   font-size: 1.5rem;
-  color: white;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff6961, #ffffff, #89cff0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navbar links */
+.top-bar-nav {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
@@ -42,30 +52,61 @@ body {
 }
 
 .nav-links a {
-  color: white;
+  color: #fff;
   font-size: 1rem;
-  transition: color 0.3s;
+  padding: 8px 12px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .nav-links a:hover {
-  color: #32cd32;
+  background: #333;
+  border-radius: 5px;
 }
 
-.nav-icons img {
-  width: 24px;
-  height: 24px;
+.nav-btn {
+  display: none;
+  font-size: 1.5rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-links.active {
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  gap: 10px;
+}
+
+/* Responsive menu */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    display: block;
+  }
 }
 
 /* Hero section */
 .hero {
   text-align: center;
-  padding: 50px 20px;
-  background: #eee;
+  padding: 100px 20px;
+  background: #1e1e1e;
 }
 
 .hero h2 {
   font-size: 2rem;
   margin-bottom: 10px;
+  color: #ffcb05;
 }
 
 .hero p {
@@ -91,7 +132,7 @@ body {
 footer {
   text-align: center;
   padding: 10px;
-  background: #333;
+  background: #000;
   color: white;
   font-size: 0.9rem;
 }
