@@ -7,23 +7,22 @@
   <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
+  <!-- Container -->
   <div class="container">
     <!-- Topbar -->
     <header>
       <div class="top-bar">
-        <div class="logo-text">Mellmods</div>
+        <!-- Logo con el texto de Mellmods y gradiente (a la izquierda) -->
+        <div class="logo-text">
+          <span class="gradiente">Mellmods</span>
+        </div>
+        
+        <!-- Menú de navegación a la derecha -->
         <button class="nav-btn" id="menu-btn">☰</button>
-        <nav class="nav-desktop">
-          <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">About</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
 
-    <!-- Sidebar Menu -->
+    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
       <button class="close-btn" id="close-btn">&times;</button>
       <ul class="sidebar-links">
@@ -47,10 +46,11 @@
 
     <!-- Footer -->
     <footer>
-      <p>© 2024 Mellmods Store. All rights reserved.</p>
+      <p>Powered by Mellmods</p>
     </footer>
   </div>
 
+  <!-- JavaScript -->
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const closeBtn = document.getElementById('close-btn');
