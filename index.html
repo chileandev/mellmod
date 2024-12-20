@@ -7,39 +7,61 @@
   <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
-  <header>
-    <div class="top-bar">
-      <div class="logo-text">
-        Mellmods
+  <div class="container">
+    <!-- Topbar -->
+    <header>
+      <div class="top-bar">
+        <div class="logo-text">Mellmods</div>
+        <button class="nav-btn" id="menu-btn">☰</button>
+        <nav class="nav-desktop">
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav class="top-bar-nav">
-        <button class="nav-btn" id="toggle-menu">☰</button>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </nav>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+      <button class="close-btn" id="close-btn">&times;</button>
+      <ul class="sidebar-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
     </div>
-  </header>
-  <main>
-    <section class="hero">
-      <h2>Welcome to Mellmods Store</h2>
-      <p>Your one-stop shop for mods and more!</p>
-      <a href="#shop" class="btn">Shop Now</a>
-    </section>
-    <section id="shop">
-      <!-- Product listings will go here -->
-    </section>
-  </main>
-  <footer>
-    <p>© 2024 Mellmods Store. All rights reserved.</p>
-  </footer>
+
+    <!-- Main Content -->
+    <main>
+      <section class="hero">
+        <h2>Welcome to Mellmods Store</h2>
+        <p>Your one-stop shop for mods and more!</p>
+        <a href="#shop" class="btn">Shop Now</a>
+      </section>
+      <section id="shop">
+        <p>Explore our amazing product catalog here.</p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2024 Mellmods Store. All rights reserved.</p>
+    </footer>
+  </div>
+
   <script>
-    const toggleMenu = document.getElementById('toggle-menu');
-    const navLinks = document.getElementById('nav-links');
-    toggleMenu.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.add('open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.remove('open');
     });
   </script>
 </body>
